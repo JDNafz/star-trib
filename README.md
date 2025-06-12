@@ -1,40 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
 
-## Getting Started
+# The Minnesota Star Tribune
 
-First, run the development server:
+Hi Mary or other Star Tribune staff, 
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+I thought I would present an idea I had while preparing to apply for the Software Engineer position.
+
+What better way than to demo my skills in code.
+
+## My Question
+
+*preface*: 
+
+I realize this is a small edge case of readers, --*software developers, unwilling or too lazy to pay for access*-- but still...
+
+### Why only use CSS to stop a user from accessing the full article?
+
+#### It's pretty easy to:
+1. Right Click > `inspect` the in your face pop up.
+
+which brings you to:
+
+```TSX
+<div class="lazy-transclude"><article class="pn-article ng-scope">
+  <div class="pn-article__inner">
+    <div class="pn-article__copy-wrapper">
 ```
+2. Right click and delete `<div class="lazy-transclude">` 
+3. Ctrl + F: "overflow" the 3rd result
+	> (first one not in the mess of compiled CSS) 
+	
+	shows
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+	```TSX
+	<div data-is-root-theme=[...]>
+		<div class="overflow-hidden" [...]>
+	```
+4. Remove `"overflow-hidden"` ( `<div class="" [...]>`)
+	gives uninhibited access to the full article.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## My Solution
+Use logic in React, rather than CSS to prevent simple tampering and ensure readability of code (can't exactly see your current code base to compare though :)
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+#### Link to [starTrib.jsx](url) (within this github repo)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+*Next.js is new to me, but I thought I'd give it a whirl.
