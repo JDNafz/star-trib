@@ -12,7 +12,7 @@ const StarTrib: React.FC = () => {
 
   return (
     <>
-      <div className="nav1">
+      <div className="nav1 nav">
         * The Minnesota Star Tribune
         {/* Imagine if I replicated the entire website */}
       </div>
@@ -41,13 +41,21 @@ const StarTrib: React.FC = () => {
         <p className="editorial-body">{article.body}</p>
       ) : (
         <>
-          <p className="editorial-body fake-text">
-            Sorry, try logging in to view full article.
+          <p className="editorial-body rejected">
+            Now using 'inspect' and deleting the div of the pop up only reveals
+            this text.😉
+            <br />
+            <br />
+            ~ ~ ~ Sorry, try logging in to view full article. ~ ~ ~
           </p>
+          <div className="signUpWrapper">
+            <div id="starTribBottom" className="white nav">* The Minnesota Star Tribune</div>
+            <div className="signUp white nav">
+              SIGN UP TO READ <br /> THIS STORY
+            </div>
+          </div>
         </>
       )}
-			
-      {/* insert paywall pop up */}
     </>
   );
 };
