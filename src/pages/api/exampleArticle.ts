@@ -1,16 +1,16 @@
-// type AuthorType = string | string[]; //multiple authors or just one?
+type AuthorType = string[]; //multiple authors or just one?
 
 interface Article {
-	// I started over doing it, commented things out.
 	title: string;
-	// subtitle: string;
-	// author: AuthorType;
-	// date: string;
+	subtitle: string;
+	author?: AuthorType;//tbd on implementing its use
+	date?: string;//tbd on implementing its use
 	body: string;
 }
-export const snippet:string = `Trump said Tuesday that in his first term he waited for governors to call in the military for riot response and “they didn’t want to do it.”`
+export const snippet: string = `Trump said Tuesday that in his first term he waited for governors to call in the military for riot response and “they didn’t want to do it.”`
 export const exampleArticle: Article = {
 	title: `Trump and cabinet officials cite Minneapolis riots, Walz’s response to justify troops in Los Angeles`,
+	subtitle: `Trump said Tuesday that in his first term he waited for governors to call in the military for riot response and “they didn’t want to do it.”`,
 	body: `LOS ANGELES — Dozens of mayors from across the Los Angeles region banded together Wednesday to demand that the Trump administration stop the stepped-up immigration raids that have spread fear across their cities and sparked protests across the U.S.
 
 But there were no signs President Donald Trump would heed their pleas.
